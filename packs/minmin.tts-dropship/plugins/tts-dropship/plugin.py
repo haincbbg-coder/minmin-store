@@ -1485,7 +1485,7 @@ async def _customer_write(args, ctx):
                 "name": ten, "phone": sdt,
                 "first_name": ho_ten[0], "last_name": " ".join(ho_ten[1:]),
                 # Ghi rõ tên và số điện thoại vào địa chỉ: thiếu hai trường này thì sàn tự điền
-                # tên người nhận từ last_name, tức "Minh Quý" thay vì "Nguyễn Minh Quý".
+                # tên người nhận từ last_name, tức "Hiếu Hải" thay vì "Hà Hiếu Hải".
                 "addresses": [{**dia_chi, "name": ten, "phone": sdt}], "dropship": True,
             }}
         d, loi = await _api("POST", "/v2/order/api/customers.json", body=than)

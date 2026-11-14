@@ -1,6 +1,6 @@
 """Phần của plugin `zalo-extras` (gói minmin.zalo, MinMin Store): tag ĐÚNG người trong nhóm Zalo, ghi chú nhóm, nhắc hẹn và poll.
 
-Vì sao có plugin này. Chủ dự án (2026-09-30): trong nhóm Zalo MinMin không tag được đúng tên người đang nói chuyện ("@minhquy"), và
+Vì sao có plugin này. Chủ dự án (2026-09-30): trong nhóm Zalo MinMin không tag được đúng tên người đang nói chuyện ("@hieuhai"), và
 muốn MinMin tạo được ghi chú, nhắc hẹn, poll. MCP chuẩn của `zalo-agent-cli` chỉ có bảy tool và `zalo_send_message` chỉ nhận chữ,
 nhưng chính CLI đó (bản 1.6.2, bản mới nhất trên npm) đã có `msg send --mention`, `group note-create`, `reminder create`,
 `poll create`. Nên làm như phần gửi ảnh (`send_media.py`): gọi lại đúng CLI đó bằng phiên đã đăng nhập (xem `server/zalo_cli.py`).
@@ -8,7 +8,7 @@ nhưng chính CLI đó (bản 1.6.2, bản mới nhất trên npm) đã có `msg
 Điều khó nhất là TAG ĐÚNG NGƯỜI. Zalo tag bằng `uid` chứ không bằng tên, mà người dùng chỉ nói tên ("tag anh Quý"). Nên:
   1. tìm tên trong những người ĐÃ NHẮN trong nhóm này (Hộp thư của MinMin có sẵn, tức thì, không tốn mạng);
   2. không thấy thì hỏi Zalo danh sách thành viên của nhóm;
-  3. chuẩn hoá bỏ dấu, hoa thường, khoảng trắng và dấu @ khi so ("minhquy" khớp "Minh Quý");
+  3. chuẩn hoá bỏ dấu, hoa thường, khoảng trắng và dấu @ khi so ("hieuhai" khớp "Hiếu Hải");
   4. TRÙNG TÊN HOẶC KHÔNG THẤY THÌ HỎI LẠI kèm danh sách ứng viên, không đoán: tag nhầm người thì không rút lại được;
   5. vị trí chữ Zalo cần là chỉ số theo đơn vị UTF-16 (JavaScript), không phải số ký tự Python: emoji chiếm 2 đơn vị. Tính sai
      là vệt tô xanh lệch sang chữ bên cạnh.
@@ -55,7 +55,7 @@ _UID_RE = re.compile(r"^\d{4,25}$")
 # Chuẩn hoá tên
 # ============================================================
 def norm(s: Any) -> str:
-    """Bỏ dấu, hoa thường, chỉ giữ chữ và số: "@Minh Quý" -> "minhquy"."""
+    """Bỏ dấu, hoa thường, chỉ giữ chữ và số: "@Hiếu Hải" -> "hieuhai"."""
     t = unicodedata.normalize("NFD", str(s or ""))
     t = "".join(c for c in t if unicodedata.category(c) != "Mn").replace("đ", "d").replace("Đ", "d")
     return re.sub(r"[^0-9a-z]+", "", t.lower())
@@ -165,7 +165,7 @@ def _candidates(members: List[dict], limit: int = 8) -> str:
 
 
 def _request_items(mentions: Any) -> List[dict]:
-    """`mentions` từ model có thể là danh sách chuỗi ("Minh Quý", "@minhquy", "123456") hoặc danh sách {name, uid}."""
+    """`mentions` từ model có thể là danh sách chuỗi ("Hiếu Hải", "@hieuhai", "123456") hoặc danh sách {name, uid}."""
     out = []
     for m in (mentions if isinstance(mentions, list) else []):
         if isinstance(m, dict):
@@ -359,7 +359,7 @@ async def _send_mention(args, ctx):
         return "ERROR: thiếu thread_id (id nhóm Zalo, từ zalo_search_threads). Tag chỉ dùng được trong NHÓM."
     text = str(args.get("text") or "").strip()
     if not text:
-        return "ERROR: thiếu text (nội dung tin). Viết @Tên ở chỗ muốn tag, ví dụ \"@Minh Quý họp lúc 9h nhé\"."
+        return "ERROR: thiếu text (nội dung tin). Viết @Tên ở chỗ muốn tag, ví dụ \"@Hiếu Hải họp lúc 9h nhé\"."
     if len(text) > MAX_TEXT:
         return f"ERROR: tin dài quá {MAX_TEXT} ký tự."
     items = _request_items(args.get("mentions"))
@@ -685,7 +685,7 @@ def register(ctx):
             "mentions": {"type": "array", "items": {"anyOf": [
                 {"type": "string"},
                 {"type": "object", "properties": {"name": {"type": "string"}, "uid": {"type": "string"}}}]},
-                "description": "người cần tag: tên (\"Minh Quý\", \"@minhquy\"), uid, hoặc {name, uid}"},
+                "description": "người cần tag: tên (\"Hiếu Hải\", \"@hieuhai\"), uid, hoặc {name, uid}"},
             "mention_all": {"type": "boolean", "description": "tag cả nhóm (@All). Chỉ khi được yêu cầu rõ."}, **_CONN},
             "required": ["thread_id", "text"]},
     )

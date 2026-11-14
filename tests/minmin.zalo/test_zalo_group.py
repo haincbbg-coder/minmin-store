@@ -2,7 +2,7 @@
 
     MINMIN_OS_DIR=../minmin-os python tests/minmin.zalo/test_zalo_group.py   (KHÔNG mạng: thay chỗ chạy CLI bằng bản ghi lại lệnh)
 
-Chủ dự án (2026-09-30): "trong nhóm MinMin không tag được tên chính xác như @minhquy", muốn có cả ghi chú, nhắc hẹn, poll. Thứ dễ hỏng
+Chủ dự án (2026-09-30): "trong nhóm MinMin không tag được tên chính xác như @hieuhai", muốn có cả ghi chú, nhắc hẹn, poll. Thứ dễ hỏng
 và không rút lại được nên được canh kỹ nhất:
   1. TAG NHẦM NGƯỜI. Zalo tag bằng uid, người dùng chỉ nói tên. Trùng tên hoặc không thấy thì phải HỎI LẠI kèm ứng viên, không đoán.
   2. VỊ TRÍ CHỮ. Zalo đọc pos/len theo đơn vị UTF-16 như JavaScript: emoji chiếm 2. Tính theo ký tự Python là vệt tô lệch chữ.
@@ -84,37 +84,37 @@ def m(uid, name):
     return {"uid": uid, "name": name, "source": "hop_thu"}
 
 
-MEMBERS = [m("1001", "Minh Quý"), m("1002", "Lan Anh"), m("1003", "Hùng"), m("1004", "Quý Nguyễn")]
+MEMBERS = [m("1001", "Hiếu Hải"), m("1002", "Lan Anh"), m("1003", "Hùng"), m("1004", "Hải Nguyễn")]
 
 # ============================================================
 # 1. Chuẩn hoá và tìm tên
 # ============================================================
-check("norm bỏ dấu, hoa thường, dấu cách và @", P.norm("@Minh Quý") == "minhquy" and P.norm("Đặng  Văn") == "dangvan")
+check("norm bỏ dấu, hoa thường, dấu cách và @", P.norm("@Hiếu Hải") == "hieuhai" and P.norm("Đặng  Văn") == "dangvan")
 check("clean_uid bỏ hậu tố phiên bản của Zalo", P.clean_uid("123_0") == "123" and P.clean_uid("123") == "123" and P.clean_uid(None) == "")
 check("utf16_len: emoji chiếm 2 đơn vị (như JavaScript)", P.utf16_len("a🎉b") == 4 and P.utf16_len("Quý") == 3)
-check("tìm KHÔNG phân biệt dấu/hoa thường: 'minhquy' ra Minh Quý",
-      [x["uid"] for x in P.find_members("minhquy", MEMBERS)] == ["1001"])
+check("tìm KHÔNG phân biệt dấu/hoa thường: 'hieuhai' ra Hiếu Hải",
+      [x["uid"] for x in P.find_members("hieuhai", MEMBERS)] == ["1001"])
 check("khớp chính xác thì thắng khớp chứa: 'Hùng' chỉ ra Hùng",
       [x["uid"] for x in P.find_members("hung", MEMBERS)] == ["1003"])
-check("'quý' vừa khớp Minh Quý vừa Quý Nguyễn (khớp chứa) = 2 người, để hỏi lại",
-      sorted(x["uid"] for x in P.find_members("quý", MEMBERS)) == ["1001", "1004"])
+check("'hải' vừa khớp Hiếu Hải vừa Hải Nguyễn (khớp chứa) = 2 người, để hỏi lại",
+      sorted(x["uid"] for x in P.find_members("hải", MEMBERS)) == ["1001", "1004"])
 check("không thấy thì rỗng, chuỗi rỗng thì rỗng", P.find_members("khong co", MEMBERS) == [] and P.find_members("@", MEMBERS) == [])
 
 # ============================================================
 # 2. Dựng tin có tag: vị trí chữ
 # ============================================================
-T1 = {"uid": "1001", "display": "Minh Quý", "typed": ["minhquy", "Minh Quý"]}
+T1 = {"uid": "1001", "display": "Hiếu Hải", "typed": ["hieuhai", "Hiếu Hải"]}
 T2 = {"uid": "1002", "display": "Lan Anh", "typed": ["lan", "Lan Anh"]}
-txt, ms = P.build_mention_message("@minhquy họp lúc 9h nhé", [T1])
-check("@minhquy trong tin được thay bằng tên thật và tính đúng vị trí", txt == "@Minh Quý họp lúc 9h nhé"
-      and ms == [{"uid": "1001", "pos": 0, "len": 9, "display": "Minh Quý"}], (txt, ms))
-txt, ms = P.build_mention_message("Nhờ @lan gửi báo cáo cho @MINH QUÝ giúp", [T1, T2])
+txt, ms = P.build_mention_message("@hieuhai họp lúc 9h nhé", [T1])
+check("@hieuhai trong tin được thay bằng tên thật và tính đúng vị trí", txt == "@Hiếu Hải họp lúc 9h nhé"
+      and ms == [{"uid": "1001", "pos": 0, "len": 9, "display": "Hiếu Hải"}], (txt, ms))
+txt, ms = P.build_mention_message("Nhờ @lan gửi báo cáo cho @HIẾU HẢI giúp", [T1, T2])
 check("hai người, thứ tự trong tin khác thứ tự yêu cầu: vị trí đúng và tăng dần",
-      txt == "Nhờ @Lan Anh gửi báo cáo cho @Minh Quý giúp" and [x["uid"] for x in ms] == ["1002", "1001"]
-      and txt[ms[0]["pos"]:ms[0]["pos"] + ms[0]["len"]] == "@Lan Anh" and txt[ms[1]["pos"]:ms[1]["pos"] + ms[1]["len"]] == "@Minh Quý", (txt, ms))
+      txt == "Nhờ @Lan Anh gửi báo cáo cho @Hiếu Hải giúp" and [x["uid"] for x in ms] == ["1002", "1001"]
+      and txt[ms[0]["pos"]:ms[0]["pos"] + ms[0]["len"]] == "@Lan Anh" and txt[ms[1]["pos"]:ms[1]["pos"] + ms[1]["len"]] == "@Hiếu Hải", (txt, ms))
 txt, ms = P.build_mention_message("Họp lúc 9h nhé", [T1])
-check("không có @ trong tin thì chèn tên ở ĐẦU tin", txt == "@Minh Quý Họp lúc 9h nhé" and ms[0]["pos"] == 0 and ms[0]["len"] == 9, (txt, ms))
-txt, ms = P.build_mention_message("🎉 chúc mừng @minhquy nhé", [T1])
+check("không có @ trong tin thì chèn tên ở ĐẦU tin", txt == "@Hiếu Hải Họp lúc 9h nhé" and ms[0]["pos"] == 0 and ms[0]["len"] == 9, (txt, ms))
+txt, ms = P.build_mention_message("🎉 chúc mừng @hieuhai nhé", [T1])
 check("CANARY: có emoji trước tên thì pos tính theo UTF-16 (emoji = 2), không theo ký tự Python",
       ms[0]["pos"] == 13 - 1 - 9 + 1 + 0 or ms[0]["pos"] == P.utf16_len("🎉 chúc mừng "), ms)
 check("và pos ấy khác vị trí ký tự Python (chứng tỏ có khác biệt để mà canh)", ms[0]["pos"] == len("🎉 chúc mừng ") + 1)
@@ -122,21 +122,21 @@ txt, ms = P.build_mention_message("@Quýnh ơi", [{"uid": "9", "display": "Quý"
 check("CANARY: '@Quý' không ăn vào đầu '@Quýnh' (tên dài hơn)", txt.startswith("@Quý ") and ms[0]["pos"] == 0 and txt == "@Quý @Quýnh ơi", (txt, ms))
 txt, ms = P.build_mention_message("@all mọi người ơi", [{"uid": "-1", "display": "All", "typed": ["All"]}])
 check("@All dùng uid -1", txt == "@All mọi người ơi" and ms[0]["uid"] == "-1" and ms[0]["len"] == 4, (txt, ms))
-txt, ms = P.build_mention_message("@minhquy và @minhquy nữa", [T1])
+txt, ms = P.build_mention_message("@hieuhai và @hieuhai nữa", [T1])
 check("cùng một người xuất hiện hai lần thì chỉ tag lần đầu", len(ms) == 1 and ms[0]["pos"] == 0)
 
 # ============================================================
 # 3. Tìm người để tag
 # ============================================================
 fake_world(local=MEMBERS)
-tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "minhquy", "uid": ""}]))
+tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "hieuhai", "uid": ""}]))
 check("tên duy nhất thì ra uid, KHÔNG gọi mạng", not why and tg[0]["uid"] == "1001" and RAN == [], (tg, why))
-tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "quý", "uid": ""}]))
-check("CANARY: trùng tên thì HỎI LẠI kèm ứng viên, không tag ai", tg == [] and "Minh Quý" in why and "Quý Nguyễn" in why and "KHÔNG đoán" in why, why)
+tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "hải", "uid": ""}]))
+check("CANARY: trùng tên thì HỎI LẠI kèm ứng viên, không tag ai", tg == [] and "Hiếu Hải" in why and "Hải Nguyễn" in why and "KHÔNG đoán" in why, why)
 check("nhắc rõ tag nhầm không rút lại được", "không rút lại" in why)
 tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "", "uid": "5555"}]))
 check("đã có uid thì dùng thẳng, không cần biết tên", not why and tg[0]["uid"] == "5555" and tg[0]["display"] == "5555" or tg[0]["display"], (tg, why))
-tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "Minh Quý", "uid": ""}, {"name": "minhquy", "uid": ""}]))
+tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "Hiếu Hải", "uid": ""}, {"name": "hieuhai", "uid": ""}]))
 check("cùng một người được nêu hai lần chỉ tag một lần", len(tg) == 1)
 
 INFO = json.dumps({"gridInfoMap": {"g1": {"memberIds": ["1001_0", "2001_0", "2002_0"],
@@ -156,7 +156,7 @@ check("người chưa nhắn lần nào vẫn tìm được qua danh sách thàn
 
 fake_world(local=MEMBERS, replies=[{"rc": 0, "out": INFO, "err": ""}, {"rc": 0, "out": PROFILES, "err": ""}])
 tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "ngoc anh", "uid": ""}]))
-check("không thấy ai thì báo lỗi kèm vài thành viên và cách xem đủ", tg == [] and "zalo_group_members" in why and "Minh Quý" in why, why)
+check("không thấy ai thì báo lỗi kèm vài thành viên và cách xem đủ", tg == [] and "zalo_group_members" in why and "Hiếu Hải" in why, why)
 
 fake_world(local=[], replies=[{"rc": 0, "out": "", "err": ESC + "[31m  ✗ Group not found" + ESC + "[39m"}])
 tg, why = asyncio.run(P.resolve_targets(MOT[0], "g1", [{"name": "ai đó", "uid": ""}]))
@@ -167,13 +167,13 @@ check("không thấy trong Hộp thư và Zalo cũng lỗi thì nói cả hai v�
 # ============================================================
 SENT = json.dumps({"message": {"msgId": "777"}})
 fake_world(local=MEMBERS, replies=[{"rc": 0, "out": SENT, "err": ""}])
-r = call(P._send_mention, {"thread_id": "g1", "text": "@minhquy họp lúc 9h nhé", "mentions": ["minhquy"]})
+r = call(P._send_mention, {"thread_id": "g1", "text": "@hieuhai họp lúc 9h nhé", "mentions": ["hieuhai"]})
 d = ans(r)
 a = cli_args()
-check("gửi được: trả JSON có tên thật, uid, vị trí, id tin", d["ok"] and d["text"] == "@Minh Quý họp lúc 9h nhé"
-      and d["mentions"] == [{"uid": "1001", "name": "Minh Quý", "pos": 0, "len": 9}] and d["message_id"] == "777", r)
+check("gửi được: trả JSON có tên thật, uid, vị trí, id tin", d["ok"] and d["text"] == "@Hiếu Hải họp lúc 9h nhé"
+      and d["mentions"] == [{"uid": "1001", "name": "Hiếu Hải", "pos": 0, "len": 9}] and d["message_id"] == "777", r)
 check("lệnh đúng: msg send <nhóm> <nội dung> -t 1 --mention pos:uid:len",
-      a == ["msg", "send", "g1", "@Minh Quý họp lúc 9h nhé", "-t", "1", "--mention", "0:1001:9"], a)
+      a == ["msg", "send", "g1", "@Hiếu Hải họp lúc 9h nhé", "-t", "1", "--mention", "0:1001:9"], a)
 check("chạy trong HOME của đúng tài khoản", RAN[-1]["home"] == "/state/zalo-a")
 
 fake_world(local=MEMBERS, replies=[{"rc": 0, "out": SENT, "err": ""}])
@@ -187,29 +187,29 @@ r = call(P._send_mention, {"thread_id": "g1", "text": "chào cả nhà", "mentio
 check("mention_all thì @All với uid -1", ans(r)["ok"] and "--mention" in cli_args() and cli_args()[-1].split(":")[1] == "-1", cli_args())
 
 fake_world(local=MEMBERS)
-r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["quý"]})
+r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["hải"]})
 check("CANARY: trùng tên thì TỪ CHỐI, KHÔNG gửi gì", r.startswith("ERROR") and "khớp 2 người" in r and RAN == [], r)
 r = call(P._send_mention, {"thread_id": "g1", "text": "hi"})
 check("không nêu ai để tag thì từ chối, không gửi", r.startswith("ERROR") and "mentions" in r and RAN == [])
-r = call(P._send_mention, {"text": "hi", "mentions": ["minhquy"]})
+r = call(P._send_mention, {"text": "hi", "mentions": ["hieuhai"]})
 check("thiếu thread_id thì chỉ cách tìm", "zalo_search_threads" in r and RAN == [])
-r = call(P._send_mention, {"thread_id": "g1", "mentions": ["minhquy"]})
+r = call(P._send_mention, {"thread_id": "g1", "mentions": ["hieuhai"]})
 check("thiếu nội dung thì báo", r.startswith("ERROR") and "text" in r and RAN == [])
-r = call(P._send_mention, {"thread_id": "g1", "text": "x" * 2001, "mentions": ["minhquy"]})
+r = call(P._send_mention, {"thread_id": "g1", "text": "x" * 2001, "mentions": ["hieuhai"]})
 check("tin quá dài thì từ chối", r.startswith("ERROR") and RAN == [])
 r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": [str(i) for i in range(1000, 1030)]})
 check("tag quá nhiều người một tin thì từ chối", r.startswith("ERROR") and RAN == [])
 
 fake_world(conns=HAI, local=MEMBERS)
-r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["minhquy"]})
+r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["hieuhai"]})
 check("CANARY: hai tài khoản Zalo mà không nêu rõ thì TỪ CHỐI (không gửi dưới danh tính người khác)", r.startswith("ERROR")
       and "connection_id" in r and RAN == [] and "Zalo phụ" in r)
 fake_world(conns=HAI, local=MEMBERS, replies=[{"rc": 0, "out": SENT, "err": ""}])
-r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["minhquy"], "connection_id": "c2"})
+r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["hieuhai"], "connection_id": "c2"})
 check("nêu connection_id thì gửi bằng đúng tài khoản", ans(r)["account"] == "Zalo phụ" and RAN[-1]["home"] == "/state/zalo-b")
 
 fake_world(local=MEMBERS, replies=[{"rc": 0, "out": "", "err": ESC + "[31m  ✗ Send failed: bạn không còn trong nhóm" + ESC + "[39m"}])
-r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["minhquy"]})
+r = call(P._send_mention, {"thread_id": "g1", "text": "hi", "mentions": ["hieuhai"]})
 check("CANARY: CLI thoát mã 0 nhưng Zalo từ chối thì báo LỖI, không báo đã gửi", r.startswith("ERROR") and "không còn trong nhóm" in r, r)
 
 fake_world(local=MEMBERS, replies=[{"rc": None, "out": None, "err": "quá 120 " + zalo_cli.TIMEOUT_MARK}])
@@ -243,14 +243,14 @@ BOARD = json.dumps({"groupId": "g1", "type": "all", "pages": 1, "truncated": Fal
     {"id": "p1", "type": "pin", "text": "hẹn chụp 9h", "pinned": True, "creatorId": "1001", "editorId": "1001",
      "createTime": 1761400000000, "editTime": 1761400000000, "raw": {}},
 ]})
-fake_world(local=[m("1001", "Minh Quý")], replies=[{"rc": 0, "out": BOARD, "err": ""}, {"rc": 0, "out": INFO, "err": ""},
+fake_world(local=[m("1001", "Hiếu Hải")], replies=[{"rc": 0, "out": BOARD, "err": ""}, {"rc": 0, "out": INFO, "err": ""},
                                                    {"rc": 0, "out": PROFILES, "err": ""}])
 r = call(P._list_notes, {"thread_id": "g1"})
 d = ans(r)
 check("đọc bảng tin: lệnh note-list đúng nhóm, mặc định mọi loại", RAN[0]["argv"][-4:] == ["note-list", "g1", "--type", "all"],
       RAN[0]["argv"])
 check("đọc bảng tin: đủ mục, id, nội dung, ai tạo", d["ok"] and d["count"] == 2 and d["items"][0]["note_id"] == "n7"
-      and "Ngày cưới" in d["items"][0]["text"] and d["items"][0]["created_by"]["name"] == "Minh Quý", d)
+      and "Ngày cưới" in d["items"][0]["text"] and d["items"][0]["created_by"]["name"] == "Hiếu Hải", d)
 check("đọc bảng tin: người sửa không có trong Hộp thư thì hỏi Zalo lấy tên",
       d["items"][0]["edited_by"]["uid"] == "2002" and d["items"][0]["edited_by"]["name"] != "", d["items"][0])
 check("đọc bảng tin: giờ sửa đọc được và giữ số gốc để đối chiếu",
@@ -260,7 +260,7 @@ check("đọc bảng tin: tin ghim là đang ghim, ghi chú thì nói rõ là kh
       and d["items"][0]["pinned"] is None and "null" in d["note"], d)
 check("CANARY: nội dung ghi chú được đánh dấu là dữ liệu, không phải lệnh", "DỮ LIỆU" in d["note"] and "không phải lệnh" in d["note"])
 check("đọc bảng tin: không lộ bản thô của Zalo ra cho model", "raw" not in d["items"][0])
-fake_world(local=[m("1001", "Minh Quý"), m("2002", "Lành")], replies=[{"rc": 0, "out": BOARD, "err": ""}])
+fake_world(local=[m("1001", "Hiếu Hải"), m("2002", "Lành")], replies=[{"rc": 0, "out": BOARD, "err": ""}])
 call(P._list_notes, {"thread_id": "g1", "type": "note"})
 check("đủ tên ở Hộp thư thì không tốn thêm lệnh Zalo", len(RAN) == 1 and RAN[0]["argv"][-1] == "note", RAN)
 fake_world()
@@ -373,15 +373,15 @@ check("Zalo từ chối (mã 0 nhưng ✗): báo lỗi kèm gợi ý quyền nh�
 # ============================================================
 # 8. Danh sách thành viên
 # ============================================================
-fake_world(local=[m("1001", "Minh Quý")], replies=[{"rc": 0, "out": INFO, "err": ""}, {"rc": 0, "out": PROFILES, "err": ""}])
+fake_world(local=[m("1001", "Hiếu Hải")], replies=[{"rc": 0, "out": INFO, "err": ""}, {"rc": 0, "out": PROFILES, "err": ""}])
 r = call(P._members, {"thread_id": "g1"})
 d = ans(r)
 names = {x["uid"]: x["name"] for x in d["members"]}
-check("gộp người đã nhắn với thành viên của Zalo, đủ tên", d["ok"] and names == {"1001": "Minh Quý", "2001": "Bảo Trân", "2002": "Đức Thắng"}, names)
-fake_world(local=[m("1001", "Minh Quý")], replies=[{"rc": 0, "out": INFO, "err": ""}, {"rc": 0, "out": PROFILES, "err": ""}])
+check("gộp người đã nhắn với thành viên của Zalo, đủ tên", d["ok"] and names == {"1001": "Hiếu Hải", "2001": "Bảo Trân", "2002": "Đức Thắng"}, names)
+fake_world(local=[m("1001", "Hiếu Hải")], replies=[{"rc": 0, "out": INFO, "err": ""}, {"rc": 0, "out": PROFILES, "err": ""}])
 d = ans(call(P._members, {"thread_id": "g1", "query": "thang"}))
 check("query lọc theo tên, không dấu", [x["uid"] for x in d["members"]] == ["2002"] and d["query"] == "thang", d)
-fake_world(local=[m("1001", "Minh Quý")], replies=[{"rc": 0, "out": "", "err": "  ✗ mạng lỗi"}])
+fake_world(local=[m("1001", "Hiếu Hải")], replies=[{"rc": 0, "out": "", "err": "  ✗ mạng lỗi"}])
 d = ans(call(P._members, {"thread_id": "g1"}))
 check("Zalo lỗi mà còn danh sách người đã nhắn thì vẫn trả, kèm ghi chú vì sao thiếu", d["count"] == 1 and "mạng lỗi" in d["note"], d)
 fake_world(local=[], replies=[{"rc": 0, "out": "", "err": "  ✗ mạng lỗi"}])

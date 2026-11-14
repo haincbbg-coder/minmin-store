@@ -2353,8 +2353,8 @@
       },
       "download": {
         "url": "dist/minmin-tts-dropship-1.1.1.zip",
-        "sha256": "72cf70c7c0dce93e8483924bb8b174772038e77fbe98b7a27cbd6d0630cbc3fd",
-        "size": 65022
+        "sha256": "435041f11893d1931a31d8d0100d8213411aed448ff752515e19832598493fe5",
+        "size": 65015
       }
     },
     {
@@ -2591,8 +2591,8 @@
       },
       "download": {
         "url": "dist/minmin-zalo-2.0.1.zip",
-        "sha256": "2a2b70728615d3d7f82901f67603453aaacfea7c37b89202fef0ab431ae73b14",
-        "size": 43644
+        "sha256": "f5b2a818287a77d60ce2e8dadb956b77c764280c107c1af3ba040e7328bca7b1",
+        "size": 43649
       }
     },
     {
@@ -4052,7 +4052,7 @@
       },
       "version": "1.1.0",
       "author": {
-        "name": "Nguyễn Minh Quý"
+        "name": "Hà Hiếu Hải"
       },
       "category": "ban-hang",
       "category_label": {
@@ -4071,8 +4071,8 @@
       },
       "download": {
         "url": "dist/minmin-minmin-vu-soul-1.1.0.zip",
-        "sha256": "2938eafa7a3bf574b80349bf674d04872ed61d444d9562c82ed30beaf44e2edd",
-        "size": 8406
+        "sha256": "734908485e02a9396fa9934561294d0c6516d36fe32f4e60405b7c2759ccb8a6",
+        "size": 8403
       },
       "replaces": [
         "minmin.linh-hon-minmin-vu"

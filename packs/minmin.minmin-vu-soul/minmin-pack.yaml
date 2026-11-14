@@ -15,7 +15,7 @@ description:
     humour that never overdoes it, follows the thread of the chat, and never makes up a price or a
     promotion. Fill in your shop profile, add your products, attach it to a Zalo or Telegram chatbot
     and Vu starts the shift.'
-author: {name: Nguyễn Minh Quý}
+author: {name: Hà Hiếu Hải}
 license: MIT
 homepage: "https://github.com/haincbbg-coder/minmin-store"
 compat: {app: ">=0.440.0"}

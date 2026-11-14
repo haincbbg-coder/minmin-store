@@ -132,7 +132,7 @@ check("thread folder stays inside attachments/zalo", folder.resolve().is_relativ
 # ============================================================
 CONN = {"id": "z1", "label": "Zalo chính", "home": "/state/z1"}
 STATE = {"history": (True, HISTORY, ""), "buffer": (True, {"messages": []}, ""), "http": [], "described": [],
-         "connected": True, "names": {"u1": "Minh Quý"}}
+         "connected": True, "names": {"u1": "Hiếu Hải"}}
 zalo_cli.check = lambda: None
 zalo_cli.connections = lambda: [dict(CONN)]
 
@@ -197,7 +197,7 @@ d = json.loads(out)
 check("reads the two newest group photos", d["ok"] and [im["message_id"] for im in d["images"]] == ["101", "103"], out[:300])
 check("photos saved inside the brain under attachments/zalo/g1", all(
     im["path"].startswith("attachments/zalo/g1/") and (vault / im["path"]).read_bytes() == JPEG for im in d["images"]), d["images"])
-check("sender resolved from the inbox, id kept when unknown", d["images"][0]["sender"] == "Minh Quý"
+check("sender resolved from the inbox, id kept when unknown", d["images"][0]["sender"] == "Hiếu Hải"
       and d["images"][1]["sender"] == "u2", [im["sender"] for im in d["images"]])
 check("embed string ready to paste", d["images"][0]["embed"].startswith("![") and d["images"][0]["path"] in d["images"][0]["embed"])
 check("ChatGPT described them in one look with a label per photo", len(STATE["described"]) == 1
