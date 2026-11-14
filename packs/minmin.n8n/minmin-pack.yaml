@@ -1,0 +1,12 @@
+format: minmin-pack
+spec: 1
+id: minmin.n8n
+version: 1.0.2
+name: {vi: "n8n"}
+description: {vi: "Điều khiển n8n của bạn: tìm và đọc workflow, xem lịch sử chạy, tạo và sửa workflow, chạy workflow - qua MCP chính chủ của n8n. Cần địa chỉ n8n của bạn + MCP Access Token."}
+author: {name: MinMin}
+license: MIT
+homepage: "https://github.com/haincbbg-coder/minmin-store"
+compat: {app: ">=0.55.27"}
+provides:
+  connectors: [connectors/n8n.json]

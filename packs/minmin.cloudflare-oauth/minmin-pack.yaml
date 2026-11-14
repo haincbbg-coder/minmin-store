@@ -1,0 +1,12 @@
+format: minmin-pack
+spec: 1
+id: minmin.cloudflare-oauth
+version: 1.0.0
+name: {vi: "Cloudflare (đăng nhập web)"}
+description: {vi: "Cùng MCP chính chủ của Cloudflare nhưng không cần tạo API token: bấm Kết nối, đăng nhập Cloudflare rồi tick quyền muốn cấp ngay trên trang của Cloudflare."}
+author: {name: MinMin}
+license: MIT
+homepage: "https://github.com/haincbbg-coder/minmin-store"
+compat: {app: ">=0.55.27"}
+provides:
+  connectors: [connectors/cloudflare-oauth.json]

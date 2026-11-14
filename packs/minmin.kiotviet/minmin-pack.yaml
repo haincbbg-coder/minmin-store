@@ -1,0 +1,12 @@
+format: minmin-pack
+spec: 1
+id: minmin.kiotviet
+version: 1.0.1
+name: {vi: "KiotViet"}
+description: {vi: "Hàng hoá, nhóm hàng, khách hàng, hoá đơn, trả hàng và chi nhánh từ KiotViet (bán lẻ và F&B). Dán Client ID, Client Secret và tên gian hàng là xong. Mỗi gian hàng một kết nối."}
+author: {name: MinMin}
+license: MIT
+homepage: "https://github.com/haincbbg-coder/minmin-store"
+compat: {app: ">=0.55.27"}
+provides:
+  connectors: [connectors/kiotviet.json]

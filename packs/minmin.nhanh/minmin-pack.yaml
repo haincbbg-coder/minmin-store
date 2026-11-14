@@ -1,0 +1,12 @@
+format: minmin-pack
+spec: 1
+id: minmin.nhanh
+version: 1.0.1
+name: {vi: "Nhanh.vn"}
+description: {vi: "Đơn hàng, doanh thu, sản phẩm bán chạy, tồn kho và khách hàng từ Nhanh.vn. Chỉ đọc, không sửa được gì trên cửa hàng. Cần Access Token, App ID và Business ID."}
+author: {name: MinMin}
+license: MIT
+homepage: "https://github.com/haincbbg-coder/minmin-store"
+compat: {app: ">=0.55.27"}
+provides:
+  connectors: [connectors/nhanh.json]
