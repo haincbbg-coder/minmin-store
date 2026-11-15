@@ -544,9 +544,9 @@
         "vi": "Meta Ads (Facebook & Instagram)"
       },
       "description": {
-        "vi": "Xem tài khoản quảng cáo, chiến dịch và hiệu suất Facebook, Instagram bằng app Meta của chính bạn (dán App ID và App Secret). Chỉ đọc: không tạo, không sửa chiến dịch, không tiêu tiền. Một app Meta dùng chung được cho mọi thẻ Meta và kênh Messenger."
+        "vi": "Xem tài khoản quảng cáo, chiến dịch và hiệu suất Facebook, Instagram bằng app Meta của chính bạn (dán App ID và App Secret). Có quyền Quản lý quảng cáo để Đội Ads của MinMin dựng camp TẮT và, khi chủ đồng ý, bật hoặc tắt camp, chỉ trên tài khoản chủ cho phép và trong trần ngân sách chủ đặt. Một app Meta dùng chung được cho mọi thẻ Meta và kênh Messenger."
       },
-      "version": "1.0.1",
+      "version": "1.1.0",
       "author": {
         "name": "MinMin"
       },
@@ -556,7 +556,7 @@
       },
       "tier": "data",
       "verified": true,
-      "updated": "2026-11-01",
+      "updated": "2026-11-16",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.meta-ads-graph",
       "icon": "packs/minmin.meta-ads-graph/assets/meta-ads.webp",
       "provides": {
@@ -565,9 +565,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-meta-ads-graph-1.0.1.zip",
-        "sha256": "672fcd555cffac97b302e6acdb302313c51f5c858f94cc01537f7623ed3a7f24",
-        "size": 18680
+        "url": "dist/minmin-meta-ads-graph-1.1.0.zip",
+        "sha256": "9d8b4d8707f8eec67ffea0ca21d1fe65c68568d4547f3f08c5df59ac834bffaa",
+        "size": 19116
       }
     },
     {
