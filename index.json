@@ -1,7 +1,7 @@
 {
   "format": "minmin-pack-index",
   "format_version": 1,
-  "updated": "2026-11-13",
+  "updated": "2026-11-21",
   "store": {
     "name": "Kho cài đặt MinMin",
     "url": "https://github.com/haincbbg-coder/minmin-store"
@@ -1973,7 +1973,7 @@
         "vi": "Bộ skill quy trình làm việc nổi nhất cho dân lập trình (obra/superpowers): brainstorm trước khi code, viết và thực thi plan, TDD, gỡ lỗi có hệ thống, review code hai chiều, git worktree, kiểm chứng trước khi báo xong.",
         "en": "The most popular workflow skills for developers (obra/superpowers): brainstorm before coding, write and execute plans, TDD, systematic debugging, both sides of code review, git worktrees, verify before claiming done."
       },
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "Jesse Vincent",
         "url": "https://github.com/obra/superpowers"
@@ -1985,15 +1985,15 @@
       },
       "tier": "data",
       "verified": true,
-      "updated": "2026-10-28",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.superpowers",
       "source": "https://github.com/obra/superpowers",
       "license": "MIT",
       "upstream": {
         "repo": "obra/superpowers",
         "ref": "main",
-        "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
-        "synced": "2026-10-28"
+        "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -2015,9 +2015,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-superpowers-1.0.1.zip",
-        "sha256": "2cd0accf985bb1a10b572ab5e05c40b250204c397e49f25ea8c5d96fb6050c6a",
-        "size": 196655
+        "url": "dist/minmin-superpowers-1.0.2.zip",
+        "sha256": "1cee9650300d606bb901c9a3d6735147d3a5db79224faf9aa67d761df9d93564",
+        "size": 195456
       }
     },
     {
@@ -3045,7 +3045,7 @@
         "vi": "Skill của Lemomo dựng phim ngắn hoàn toàn bằng code theo 59 phong cách (sơn dầu, màu nước, ukiyo-e, ảnh vệ tinh...): kịch bản, hình, nhạc, lồng tiếng. Cần Node 20+, ffmpeg, Python 3.11+; chạy tốt nhất với Claude.",
         "en": "Lemomo's skill for short films made entirely in code in 59 styles (oil paint, watercolor, ukiyo-e, satellite...): story, picture, score, narration. Needs Node 20+, ffmpeg, Python 3.11+; tuned for Claude."
       },
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Lemomo",
         "url": "https://github.com/lemomo-ai/lemo-opuscar"
@@ -3057,15 +3057,15 @@
       },
       "tier": "data",
       "verified": true,
-      "updated": "2026-10-28",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.lemo-opuscar",
       "source": "https://github.com/lemomo-ai/lemo-opuscar",
       "license": "MIT",
       "upstream": {
         "repo": "lemomo-ai/lemo-opuscar",
         "ref": "main",
-        "commit": "413a6bd6d78ebd3bdd5abaec9538a26867f890df",
-        "synced": "2026-10-28"
+        "commit": "f9e204293930952b61ba921cd8944d05f121beee",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3073,9 +3073,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-lemo-opuscar-1.0.0.zip",
-        "sha256": "f133070aadb4665860b9aa5e3e01c62d6678024eb81b3d3456c9f9d67ae43edd",
-        "size": 6944
+        "url": "dist/minmin-lemo-opuscar-1.0.1.zip",
+        "sha256": "e0b9e140bdc3057e017ae12e55817c98c1459413f1509ddb773fae154e8025da",
+        "size": 10831
       }
     },
     {
@@ -3089,7 +3089,7 @@
         "vi": "Bộ skill chính chủ của Remotion (remotion.dev): tạo dự án video bằng React, hoạt hình, chữ và hiệu ứng, phụ đề, bản đồ, xem trước và xuất video. Theo repo gốc, cập nhật mỗi khi Remotion sửa skill.",
         "en": "Remotion's official skills (remotion.dev): create React video projects, animation, type and effects, captions, maps, preview and render. Follows the source repo and updates whenever Remotion changes its skills."
       },
-      "version": "1.0.4",
+      "version": "1.0.5",
       "author": {
         "name": "Remotion",
         "url": "https://github.com/remotion-dev/skills"
@@ -3101,15 +3101,15 @@
       },
       "tier": "data",
       "verified": true,
-      "updated": "2026-11-11",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.remotion",
       "source": "https://github.com/remotion-dev/skills",
       "license": "Remotion License",
       "upstream": {
         "repo": "remotion-dev/skills",
         "ref": "main",
-        "commit": "1fc074b74b95cfecf7b1e419132f2cfe23dafebe",
-        "synced": "2026-11-11"
+        "commit": "6f55706d1069e512430582ad86e4e57dc07afe1b",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3129,9 +3129,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-remotion-1.0.4.zip",
-        "sha256": "3ebd8c07d7774067119f5f1fc946bc55d0ca9f9b547d6e51da6579756be0c765",
-        "size": 873510
+        "url": "dist/minmin-remotion-1.0.5.zip",
+        "sha256": "7cbb9d36196ffeff83ac1d7e4196f277387f18e0b6a7c038626851d01ec6f135",
+        "size": 409390
       }
     },
     {
@@ -3417,7 +3417,7 @@
         "vi": "12 skill của GitNexus: dựng đồ thị phụ thuộc của cả codebase rồi dùng nó để khám phá mã, gỡ lỗi, đánh giá tác động trước khi sửa, refactor, review PR. Cần chạy npx gitnexus analyze. Giấy phép chỉ cho dùng phi thương mại.",
         "en": "12 GitNexus skills: index the whole codebase into a dependency graph and use it to explore code, debug, check impact before an edit, refactor and review PRs. Needs npx gitnexus analyze. Licensed for noncommercial use only."
       },
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": {
         "name": "Abhigyan Patwari",
         "url": "https://github.com/abhigyanpatwari/GitNexus"
@@ -3429,15 +3429,15 @@
       },
       "tier": "data",
       "verified": true,
-      "updated": "2026-11-05",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.gitnexus",
       "source": "https://github.com/abhigyanpatwari/GitNexus",
       "license": "PolyForm-Noncommercial-1.0.0",
       "upstream": {
         "repo": "abhigyanpatwari/GitNexus",
         "ref": "main",
-        "commit": "fb85794c621f89217ceb7fc9e708459e4f21ba77",
-        "synced": "2026-11-05"
+        "commit": "9a5ec195aa4f70d0a290c04439836f115dfe9a6d",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3456,9 +3456,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-gitnexus-1.0.2.zip",
-        "sha256": "e3bcba58541df79f3d2bb08bfc757100cc237951b68f9544ef2f1df4da22ac7d",
-        "size": 149448
+        "url": "dist/minmin-gitnexus-1.0.3.zip",
+        "sha256": "9e851f82fa37a76438a5a49f24adbd8244579bb8f7115fdf917c178d012debd0",
+        "size": 150982
       }
     },
     {
@@ -3472,7 +3472,7 @@
         "vi": "Skill sửa văn bản cho bớt mùi AI: nhận ra và gỡ các dấu hiệu quen thuộc (từ sáo rỗng, câu ba vế, kết luận chung chung) để bài viết đọc như người thật viết. Dùng tốt nhất với nội dung tiếng Anh.",
         "en": "Edits text so it stops sounding like AI: spots and removes the familiar tells (stock words, rule of three, vague wrap-ups) so the piece reads as written by a person. Works best on English."
       },
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Siqi Chen",
         "url": "https://github.com/blader/humanizer"
@@ -3484,15 +3484,15 @@
       },
       "tier": "code",
       "verified": true,
-      "updated": "2026-10-28",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.humanizer",
       "source": "https://github.com/blader/humanizer",
       "license": "MIT",
       "upstream": {
         "repo": "blader/humanizer",
         "ref": "main",
-        "commit": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
-        "synced": "2026-10-28"
+        "commit": "a32f24407364c74c812b43c15926d638bee1e072",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3500,9 +3500,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-humanizer-1.0.0.zip",
-        "sha256": "762a51be6a9f18e2904791577ee73ad98d103b8fd08ea10b5970ba7aa4c0d121",
-        "size": 27982
+        "url": "dist/minmin-humanizer-1.0.1.zip",
+        "sha256": "17ba04afda89ffc69873c6d9dca75f0433a82f356b922f9dba93cce63ce26ffd",
+        "size": 30781
       }
     },
     {
@@ -3516,7 +3516,7 @@
         "vi": "Bộ skill của HeyGen để AI làm video bằng HTML: lên ý tưởng, dựng cảnh, hoạt hình, slideshow, lấy thiết kế từ Figma, chuyển dự án Remotion sang, rồi xuất video. Cần Node 22+ và ffmpeg.",
         "en": "HeyGen's skills for making video in HTML: plan, build scenes, animate, slideshows, pull designs from Figma, migrate Remotion projects, then render. Needs Node 22+ and ffmpeg."
       },
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "HeyGen",
         "url": "https://github.com/heygen-com/hyperframes"
@@ -3528,15 +3528,15 @@
       },
       "tier": "code",
       "verified": true,
-      "updated": "2026-10-28",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.hyperframes",
       "source": "https://github.com/heygen-com/hyperframes",
       "license": "Apache-2.0",
       "upstream": {
         "repo": "heygen-com/hyperframes",
         "ref": "main",
-        "commit": "7758d9b8fd507384573eb56ba84cc62fb20444c6",
-        "synced": "2026-10-28"
+        "commit": "b0d9f3615984e6e88c2d6b4dae862fbde2004da1",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3546,13 +3546,15 @@
           "hyperframes-registry",
           "media-use",
           "remotion-to-hyperframes",
-          "slideshow"
+          "reverse-any-video",
+          "slideshow",
+          "style-sampling"
         ]
       },
       "download": {
-        "url": "dist/minmin-hyperframes-1.0.0.zip",
-        "sha256": "1b06431d5def841d999fbefd1e2c256c1a3f8f3cb329dd38cb3be51bf42d2019",
-        "size": 2075570
+        "url": "dist/minmin-hyperframes-1.0.1.zip",
+        "sha256": "847e6cec0e0540e39c37fde04623058f62f169bf0703ba57ddaa7f04ed388ef0",
+        "size": 2168659
       }
     },
     {
@@ -3566,7 +3568,7 @@
         "vi": "52 skill marketing của Corey Haines, repo marketing nhiều sao nhất: viết copy, tối ưu chuyển đổi, SEO và SEO cho AI, quảng cáo, email, định giá, ra mắt sản phẩm, giới thiệu bạn bè, đo lường, chống rời bỏ.",
         "en": "Corey Haines's 52 marketing skills, the most-starred marketing repo: copywriting, conversion, SEO and AI search, ads, email, pricing, launches, referrals, analytics and churn prevention."
       },
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "Corey Haines",
         "url": "https://github.com/coreyhaines31/marketingskills"
@@ -3578,15 +3580,15 @@
       },
       "tier": "code",
       "verified": true,
-      "updated": "2026-10-30",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.marketingskills",
       "source": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT",
       "upstream": {
         "repo": "coreyhaines31/marketingskills",
         "ref": "main",
-        "commit": "820ad2c1c0ac4cc350158bd7912c753681a7d173",
-        "synced": "2026-10-30"
+        "commit": "5b2b400eec1e7e1cec76245a715d0b0d4fd2a9c1",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3633,6 +3635,7 @@
           "prospecting",
           "public-relations",
           "referrals",
+          "reverse-engineer-marketing",
           "revops",
           "sales-enablement",
           "schema",
@@ -3645,9 +3648,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-marketingskills-1.0.1.zip",
-        "sha256": "9bcfcff10b5064d31383e5a7e61ff362c9e0a23ab4f8af9a86784d75651dad8b",
-        "size": 1681983
+        "url": "dist/minmin-marketingskills-1.0.2.zip",
+        "sha256": "116fde9d9348feb70663951daeb7db1e4ff0822dffdd63325d29e3a519a87538",
+        "size": 1926761
       }
     },
     {
@@ -3731,7 +3734,7 @@
         "vi": "Skill của REA (Reverse Engineer Anything), repo AI đang nổi nhất GitHub: phân tích app Electron/JavaScript, tệp chạy, firmware và trang web khi không có mã nguồn, so sánh phiên bản, dịch ngược. Cần cài công cụ rea (npm rea-agents).",
         "en": "The REA (Reverse Engineer Anything) skill, GitHub's top trending AI repo: analyse Electron/JavaScript apps, binaries, firmware and web apps without their source, compare versions, decompile. Needs the rea tool (npm rea-agents)."
       },
-      "version": "1.0.10",
+      "version": "1.0.11",
       "author": {
         "name": "morluto",
         "url": "https://github.com/morluto/rea"
@@ -3743,15 +3746,15 @@
       },
       "tier": "data",
       "verified": true,
-      "updated": "2026-11-09",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.rea",
       "source": "https://github.com/morluto/rea",
       "license": "MIT",
       "upstream": {
         "repo": "morluto/rea",
         "ref": "main",
-        "commit": "dda2d4029548f820bf5621b3bc1dd1ce381446a2",
-        "synced": "2026-11-09"
+        "commit": "3a60c55a91c3211fe087c572570c8e907d881e7e",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3759,9 +3762,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-rea-1.0.10.zip",
-        "sha256": "6ad13d8497af1473d5eca1c4a13e236a1051cae36345657fe49c40274619d570",
-        "size": 75572
+        "url": "dist/minmin-rea-1.0.11.zip",
+        "sha256": "a5cbde77a5d93d98a41650d5acbb710e412011c490e7131c162eeebacf8001d2",
+        "size": 97797
       }
     },
     {
@@ -3775,7 +3778,7 @@
         "vi": "Bộ skill thiết kế giao diện nổi nhất: kho phong cách, bảng màu, cặp font và quy tắc UX để AI dựng trang web, landing page, banner, slide và hệ thống thiết kế đẹp ngay lần đầu. Cần Python 3.",
         "en": "The most popular interface design skills: a library of styles, palettes, font pairings and UX rules so the AI builds websites, landing pages, banners, slides and design systems that look right first time. Needs Python 3."
       },
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Next Level Builder",
         "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
@@ -3787,15 +3790,15 @@
       },
       "tier": "code",
       "verified": true,
-      "updated": "2026-10-28",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.ui-ux-pro-max",
       "source": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
       "license": "MIT",
       "upstream": {
         "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
         "ref": "main",
-        "commit": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03",
-        "synced": "2026-10-28"
+        "commit": "2de1134dc4d1cfe112934611ae5803ae17a1bd7e",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3809,9 +3812,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-ui-ux-pro-max-1.0.0.zip",
-        "sha256": "1ccda2a166c14dc5cf937641ca5a344ce49d8eb2f611bac057571e13f95bfbb6",
-        "size": 3595088
+        "url": "dist/minmin-ui-ux-pro-max-1.0.1.zip",
+        "sha256": "9d65ac9fd2192140b9d43fc0df0f3649bdfc84375090f3d95ddfda9ad4a52d76",
+        "size": 3590875
       }
     },
     {
@@ -3825,7 +3828,7 @@
         "vi": "Skill chính chủ của Vercel: thực hành tốt nhất cho React và Next.js, React Native, hiệu ứng chuyển trang, nguyên tắc thiết kế giao diện web, viết nội dung rõ ràng, và triển khai lên Vercel.",
         "en": "Vercel's official skills: React and Next.js best practices, React Native, view transitions, web interface design guidelines, clear writing, and deploying to Vercel."
       },
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Vercel",
         "url": "https://github.com/vercel-labs/agent-skills"
@@ -3837,15 +3840,15 @@
       },
       "tier": "data",
       "verified": true,
-      "updated": "2026-10-28",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.vercel-skills",
       "source": "https://github.com/vercel-labs/agent-skills",
       "license": "MIT",
       "upstream": {
         "repo": "vercel-labs/agent-skills",
         "ref": "main",
-        "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
-        "synced": "2026-10-28"
+        "commit": "5a37a6329fbad3666c3207392a6a7c0110e92efb",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3861,9 +3864,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-vercel-skills-1.0.0.zip",
-        "sha256": "45e8ed781f96abac1843d23eaa4d17034f76f8aaefc8ba7c350d7ef7a5df2da0",
-        "size": 552900
+        "url": "dist/minmin-vercel-skills-1.0.1.zip",
+        "sha256": "bc1c5e15df117ace4c1da48efc032b6b95602096a082bdef0534c324cb17a3de",
+        "size": 558720
       }
     },
     {
@@ -3922,7 +3925,7 @@
         "vi": "Skill lập kế hoạch kiểu Manus: việc dài được chia thành kế hoạch, ghi chú và tiến độ trong tệp markdown, nên AI không quên mục tiêu giữa chừng và làm tiếp được sau khi gián đoạn.",
         "en": "Manus-style planning: long tasks keep their plan, findings and progress in markdown files, so the AI does not lose the goal halfway and can pick up after an interruption."
       },
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Ahmad Othman Adi",
         "url": "https://github.com/OthmanAdi/planning-with-files"
@@ -3934,15 +3937,15 @@
       },
       "tier": "code",
       "verified": true,
-      "updated": "2026-10-28",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.planning-with-files",
       "source": "https://github.com/OthmanAdi/planning-with-files",
       "license": "MIT",
       "upstream": {
         "repo": "OthmanAdi/planning-with-files",
         "ref": "master",
-        "commit": "dcdfb278de53fdb69b2067ea173dbb1de45345a3",
-        "synced": "2026-10-28"
+        "commit": "7673790971ea36c88c3e9119bb2be105a29d7df0",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -3950,9 +3953,9 @@
         ]
       },
       "download": {
-        "url": "dist/minmin-planning-with-files-1.0.0.zip",
-        "sha256": "42e1ad2fd339a5e6f7175c84daaef8ba6b6718ff196beb35dde462c90e767ed7",
-        "size": 161603
+        "url": "dist/minmin-planning-with-files-1.0.1.zip",
+        "sha256": "f0a8693599eac772d567db479800497c43f78f5dee3b896a3e969b1c6ebfb392",
+        "size": 188067
       }
     },
     {
@@ -15452,7 +15455,7 @@
         "vi": "24 skill SEO của Claude SEO: kiểm tra cả website, phân tích từng trang, SEO kỹ thuật và Core Web Vitals, schema, sitemap, nội dung E-E-A-T, SEO địa phương, thương mại điện tử, backlink, SEO cho AI (GEO). Cần Python 3.11 trở lên.",
         "en": "24 Claude SEO skills: full site audits, single-page analysis, technical SEO and Core Web Vitals, schema, sitemaps, E-E-A-T content, local SEO, ecommerce, backlinks and AI search (GEO). Needs Python 3.11 or newer."
       },
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": {
         "name": "AgriciDaniel",
         "url": "https://github.com/AgriciDaniel/claude-seo"
@@ -15464,15 +15467,15 @@
       },
       "tier": "code",
       "verified": true,
-      "updated": "2026-11-06",
+      "updated": "2026-11-21",
       "homepage": "https://github.com/haincbbg-coder/minmin-store/tree/main/packs/minmin.claude-seo",
       "source": "https://github.com/AgriciDaniel/claude-seo",
       "license": "MIT",
       "upstream": {
         "repo": "AgriciDaniel/claude-seo",
         "ref": "main",
-        "commit": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "synced": "2026-11-06"
+        "commit": "468ed5b0d9e3249394783710e54abb02837e326b",
+        "synced": "2026-11-21"
       },
       "provides": {
         "skills": [
@@ -15480,6 +15483,7 @@
           "seo-agentic",
           "seo-audit",
           "seo-backlinks",
+          "seo-bing",
           "seo-cluster",
           "seo-competitor-pages",
           "seo-content",
@@ -15495,17 +15499,19 @@
           "seo-maps",
           "seo-page",
           "seo-plan",
+          "seo-posthog",
           "seo-programmatic",
           "seo-schema",
+          "seo-shopify",
           "seo-sitemap",
           "seo-sxo",
           "seo-technical"
         ]
       },
       "download": {
-        "url": "dist/minmin-claude-seo-1.0.2.zip",
-        "sha256": "57c66c1da4b4852b5eb89ad96923708b70cad7e5cb86ce06eb17edbbe0e78475",
-        "size": 673866
+        "url": "dist/minmin-claude-seo-1.0.3.zip",
+        "sha256": "ef94d306db81cc3e258db40875550fd4b398b1d208a90eeccdf66032d4224493",
+        "size": 840696
       }
     },
     {
